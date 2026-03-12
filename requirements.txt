@@ -1,0 +1,12 @@
+gradio==4.44.0
+# Versions compatibles avec Python 3.13 (wheels précompilées)
+pandas==2.3.3
+numpy==2.2.5
+scikit-learn==1.6.1
+xgboost==3.2.0
+joblib==1.5.0
+audioop-lts==0.2.2
+seaborn==0.13.2
+plotly==6.6.0
+shap==0.51.0
+huggingface_hub==0.24.0

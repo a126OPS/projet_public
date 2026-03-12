@@ -1,4 +1,4 @@
-﻿---
+---
 title: Estimateur Prix Voiture
 emoji: ""
 colorFrom: blue
@@ -13,13 +13,13 @@ short_description: Prédiction du prix d'un véhicule avec XGBoost
 
 # Estimateur de Prix Voiture
 
-Modèle de machine learning entraîné pour prédire le prix d'un véhicule d'occasion sur le marché français.
+Modèle de Machine Learning entraîné pour prédire le prix d'un véhicule d'occasion sur le marché français.
 
 ## Modèle
 
-- Algorithme : XGBoost Regressor (pipeline Scikit-learn)
-- Métriques : R² > 0.85 · MAE ≈ 4 500 €
-- Features : marque, année, kilométrage, puissance, carburant, transmission, état, nb_propriétaires, consommation
+- **Algorithme** : XGBoost Regressor (pipeline Scikit-learn)
+- **Métriques** : R² > 0.85 · MAE ≈ 4 500 €
+- **Features** : marque, année, kilométrage, puissance, carburant, transmission, état, nb_propriétaires, consommation
 
 ## Utilisation
 
@@ -29,4 +29,4 @@ Remplissez le formulaire avec les caractéristiques du véhicule et cliquez sur 
 
 **Atillio HOUNGUE** — Data Scientist & ML Engineer  
 Email : atilliohoungue@gmail.com  
-Portfolio : https://atillio-houngue.github.io
+Portfolio : [https://atillio-houngue.github.io](https://atillio-houngue.github.io)
