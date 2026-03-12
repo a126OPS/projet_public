@@ -1,6 +1,5 @@
 ﻿---
 title: Estimateur Prix Voiture
-emoji: ""
 colorFrom: blue
 colorTo: indigo
 sdk: gradio

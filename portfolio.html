@@ -639,7 +639,34 @@
     </p>
   </div>
   <div class="projects-grid">
- 
+
+    <!-- PROJECT — Estimateur de Prix Voiture -->
+    <div class="project-card fade-in">
+      <div class="project-card-header">
+        <div class="project-title">Estimateur de Prix Voiture</div>
+        <span class="project-badge badge-hf hf-live">HF Space</span>
+      </div>
+      <div class="project-body">
+        <p class="project-desc">
+          Application Gradio qui prédit le prix d'un véhicule d'occasion (France) à partir de 10 caractéristiques.
+          Inclut fourchette d'incertitude, verdict marché et récapitulatif complet.
+        </p>
+        <div class="project-metrics">
+          <span class="metric">XGBoost</span>
+          <span class="metric">MAE ≈ 4 500 €</span>
+          <span class="metric">10 features</span>
+        </div>
+        <div class="project-stack">
+          <span class="tag">Gradio</span><span class="tag">XGBoost</span>
+          <span class="tag">Scikit-learn</span><span class="tag">Pandas</span>
+        </div>
+      </div>
+      <div class="project-card-footer">
+        <button class="btn-demo" onclick="openModal('modal-hf', 'https://huggingface.co/spaces/a126OPS/car-price-predictor-demo', 'Estimateur de Prix Voiture')">▶ Tester le modèle</button>
+        <a href="https://github.com/a126OPS/projet_public" class="btn-code" target="_blank">{'</>'}</a>
+      </div>
+    </div>
+
     <!-- PROJECT 1 — Méta-modèle Mémoire M2 -->
     <div class="project-card fade-in">
       <div class="project-card-header">
@@ -923,16 +950,10 @@
       document.getElementById('modal-hf-title').textContent = title;
       document.getElementById('hf-url-generic').value = url;
       document.getElementById('modal-hf-body').innerHTML = `
-        <div class="modal-placeholder">
-          <div class="modal-placeholder-icon"></div>
-          <div class="modal-placeholder-title">${title}</div>
-          <div class="modal-placeholder-desc">
-            Remplacez l'URL ci-dessous par l'URL réelle de votre Hugging Face Space pour charger l'interface.
-          </div>
-          <div class="modal-placeholder-input">
-            <input type="text" value="${url}" id="hf-url-generic" style="flex:1"/>
-            <button class="btn-demo" onclick="loadHFSpaceGeneric()">Charger</button>
-          </div>
+        <iframe src="${url}" allow="accelerometer; camera; microphone; clipboard-read; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>
+        <div class="modal-placeholder-input" style="margin-top:0.75rem;">
+          <input type="text" value="${url}" id="hf-url-generic" style="flex:1"/>
+          <button class="btn-demo" onclick="loadHFSpaceGeneric()">Charger</button>
         </div>`;
     }
     document.getElementById(id).classList.add('open');
