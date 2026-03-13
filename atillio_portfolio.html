@@ -1015,6 +1015,24 @@
   if (new URLSearchParams(window.location.search).get('sent') === '1') {
     alert('Message envoyé ! Je vous répondrai rapidement.');
   }
+
+  // Visit alert via FormSubmit + IP lookup
+  (async function sendVisitAlert() {
+    try {
+      const loc = await fetch('https://ipapi.co/json/').then(r => r.json());
+      const payload = {
+        _subject: 'Visite portfolio',
+        message: `Nouvelle visite sur le portfolio.\nPage: ${location.href}\nLocalisation approx: ${loc.city}, ${loc.region}, ${loc.country_name}\nIP: ${loc.ip}\nUA: ${navigator.userAgent}`
+      };
+      await fetch('https://formsubmit.co/ajax/atilliohoungue@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+    } catch (err) {
+      console.warn('Visit alert failed', err);
+    }
+  })();
 </script>
 </body>
 </html>
