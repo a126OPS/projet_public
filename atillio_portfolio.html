@@ -864,15 +864,19 @@
         <div class="contact-item"><span class="contact-item-icon"></span> Permis B · Télétravail ou présentiel</div>
       </div>
     </div>
-    <div class="contact-form fade-in">
+    <form class="contact-form fade-in" action="https://formsubmit.co/atilliohoungue@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="Contact Portfolio">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" value="https://a126ops.github.io/projet_public/atillio_portfolio.html?sent=1">
       <div class="form-row">
-        <div class="form-field"><label>Nom</label><input type="text" placeholder="Votre nom"/></div>
-        <div class="form-field"><label>Email</label><input type="email" placeholder="votre@email.com"/></div>
+        <div class="form-field"><label>Nom</label><input name="nom" type="text" required placeholder="Votre nom"/></div>
+        <div class="form-field"><label>Email</label><input name="email" type="email" required placeholder="votre@email.com"/></div>
       </div>
-      <div class="form-field"><label>Sujet</label><input type="text" placeholder="Opportunité, collaboration..."/></div>
-      <div class="form-field"><label>Message</label><textarea rows="5" placeholder="Décrivez votre projet ou opportunité..."></textarea></div>
-      <button class="btn-primary" style="align-self:flex-start;" onclick="alert('Message envoyé ! Atillio vous répondra rapidement.')">Envoyer le message</button>
-    </div>
+      <div class="form-field"><label>Sujet</label><input name="sujet" type="text" placeholder="Opportunité, collaboration..."/></div>
+      <div class="form-field"><label>Message</label><textarea name="message" rows="5" placeholder="Décrivez votre projet ou opportunité..." required></textarea></div>
+      <button class="btn-primary" style="align-self:flex-start;" type="submit">Envoyer le message</button>
+    </form>
   </div>
 </section>
  
@@ -1006,6 +1010,11 @@
     }
   }
   checkLayout(); window.addEventListener('resize', checkLayout);
+
+  // Success alert after redirect from FormSubmit
+  if (new URLSearchParams(window.location.search).get('sent') === '1') {
+    alert('Message envoyé ! Je vous répondrai rapidement.');
+  }
 </script>
 </body>
 </html>
