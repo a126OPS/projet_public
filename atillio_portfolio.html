@@ -933,19 +933,8 @@
   function openModal(id, url, title) {
     if (url && title) {
       document.getElementById('modal-hf-title').textContent = title;
-      document.getElementById('hf-url-generic').value = url;
-      document.getElementById('modal-hf-body').innerHTML = `
-        <div class="modal-placeholder">
-          <div class="modal-placeholder-icon"></div>
-          <div class="modal-placeholder-title">${title}</div>
-          <div class="modal-placeholder-desc">
-            Remplacez l'URL ci-dessous par l'URL réelle de votre Hugging Face Space pour charger l'interface.
-          </div>
-          <div class="modal-placeholder-input">
-            <input type="text" value="${url}" id="hf-url-generic" style="flex:1"/>
-            <button class="btn-demo" onclick="loadHFSpaceGeneric()">Charger</button>
-          </div>
-        </div>`;
+      document.getElementById('modal-hf-body').innerHTML =
+        `<iframe src="${url}" allow="accelerometer; camera; microphone; clipboard-read; clipboard-write; encrypted-media; gyroscope; picture-in-picture" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>`;
     }
     document.getElementById(id).classList.add('open');
   }
