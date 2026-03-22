@@ -1,0 +1,11 @@
+gradio
+ipykernel
+joblib
+jupyterlab
+matplotlib
+notebook
+numpy
+pandas
+requests
+scikit-learn
+seaborn
