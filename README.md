@@ -1,9 +1,9 @@
-﻿# 🚀 Portfolio — Atillio HOUNGUE
+# 🚀 Portfolio — Atillio HOUNGUE
 ### Data Scientist & Data Analyst
 
 [![Hugging Face](https://img.shields.io/badge/Hugging%20Face-a126OPS-orange?logo=huggingface)](https://huggingface.co/a126OPS)
 [![GitHub](https://img.shields.io/badge/GitHub-a126OPS-black?logo=github)](https://github.com/a126OPS)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Atillio%20Gautier-blue?logo=linkedin)](https://www.linkedin.com/in/atillio-houngue-245715331)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Atillio%20HOUNGUE-blue?logo=linkedin)](https://www.linkedin.com/in/atillio-houngue-245715331)
 [![Deploy](https://img.shields.io/badge/Deploy-GitHub%20Pages-green?logo=github)](https://a126ops.github.io/projet_public/)
 
 ---

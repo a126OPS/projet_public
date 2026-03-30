@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Atillio HOUNGUE— Data Scientist & ML Engineer</title>
+<title>Atillio HOUNGUE - Data Scientist & ML Engineer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
@@ -92,7 +92,12 @@
     background: radial-gradient(circle, rgba(14,165,233,0.12) 0%, transparent 70%);
     top: -100px; right: -100px; pointer-events: none;
   }
-  .hero-content { position: relative; z-index: 1; max-width: 900px; }
+  .hero-content {
+    position: relative; z-index: 1; max-width: 1120px; width: 100%;
+    display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, 320px);
+    gap: 3rem; align-items: center;
+  }
+  .hero-copy { min-width: 0; }
   .hero-tag {
     display: inline-flex; align-items: center; gap: 0.5rem;
     font-family: 'IBM Plex Mono', monospace;
@@ -147,6 +152,25 @@
   .hero-stats {
     display: flex; gap: 3rem; margin-top: 4rem; flex-wrap: wrap;
     animation: fadeUp 0.6s ease 0.4s both;
+  }
+  .hero-photo-shell {
+    position: relative; justify-self: end; width: min(100%, 320px);
+    animation: fadeUp 0.6s ease 0.25s both;
+  }
+  .hero-photo-shell::before {
+    content: ''; position: absolute; inset: -14px;
+    border: 1px solid rgba(14,165,233,0.24);
+    border-radius: 28px; transform: rotate(-4deg);
+  }
+  .hero-photo-frame {
+    position: relative; overflow: hidden; border-radius: 24px;
+    border: 1px solid var(--border);
+    background: linear-gradient(180deg, rgba(17,31,51,0.95), rgba(6,12,20,0.9));
+    box-shadow: 0 28px 60px rgba(0,0,0,0.35);
+  }
+  .hero-photo {
+    display: block; width: 100%; height: auto;
+    aspect-ratio: 4 / 5; object-fit: cover;
   }
   .stat-item { }
   .stat-num {
@@ -653,6 +677,8 @@
     .nav-links { display: none; }
     section { padding: 4rem 1.5rem; }
     .hero { padding: 6rem 1.5rem 3rem; }
+    .hero-content { grid-template-columns: 1fr; gap: 2rem; }
+    .hero-photo-shell { justify-self: start; width: min(78vw, 320px); }
     .contact-grid { grid-template-columns: 1fr; }
     footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; }
     .form-row { flex-direction: column; }
@@ -696,17 +722,24 @@
   <div class="hero-grid-bg"></div>
   <div class="hero-glow"></div>
   <div class="hero-content">
-    <div class="hero-tag">Alternant Data Ingénieur — Quai des Notaires</div>
-    <h1 class="hero-title">
-      Atillio<br>
-      <span class="line2">Gautier</span>
-    </h1>
-    <p class="hero-desc">
-      Profil Data Analyst & Data Scientist Junior alliant rigueur analytique et expertise ML appliquée. Capable de concevoir des pipelines data complets, d'entraîner des modèles prédictifs en production et de valoriser les données pour la prise de décision métier.
-    </p>
-    <div class="hero-actions">
-      <a href="#projects" class="btn-primary">Voir les modèles ML</a>
-      <a href="#experience" class="btn-secondary">Parcours</a>
+    <div class="hero-copy">
+      <div class="hero-tag">Alternant Data Ingenieur - Quai des Notaires</div>
+      <h1 class="hero-title">
+        Atillio<br>
+        <span class="line2">HOUNGUE</span>
+      </h1>
+      <p class="hero-desc">
+        Profil Data Analyst & Data Scientist Junior alliant rigueur analytique et expertise ML appliquee. Capable de concevoir des pipelines data complets, d'entrainer des modeles predictifs en production et de valoriser les donnees pour la prise de decision metier.
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn-primary">Voir les modeles ML</a>
+        <a href="#experience" class="btn-secondary">Parcours</a>
+      </div>
+    </div>
+    <div class="hero-photo-shell">
+      <div class="hero-photo-frame">
+        <img class="hero-photo" src="Sample.jpg.jpg" alt="Portrait de Atillio HOUNGUE">
+      </div>
     </div>
   </div>
 </section>
@@ -1001,7 +1034,7 @@
  
 <!-- FOOTER -->
 <footer>
-  <div class="footer-text">© 2026 Atillio HOUNGUE— Data Scientist & Data Analyst</div>
+  <div class="footer-text">© 2026 Atillio HOUNGUE - Data Scientist & Data Analyst</div>
   <div class="footer-links">
     <a href="https://www.linkedin.com/in/atillio-houngue-245715331" target="_blank">LinkedIn</a>
     <a href="https://github.com/a126OPS" target="_blank">GitHub</a>
