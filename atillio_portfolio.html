@@ -808,7 +808,7 @@
         </div>
       </div>
       <div class="project-card-footer">
-        <button class="btn-demo" onclick="openModal('modal-hf', 'https://huggingface.co/spaces/a126OPS/car-price-predictor-demo/embed', 'Car Price Predictor')">Tester le modèle</button>
+        <button class="btn-demo" onclick="openCarPriceSpaceModal()">Tester le modèle</button>
         <a href="https://huggingface.co/spaces/a126OPS/car-price-predictor-demo" target="_blank" class="btn-code">{'</>'}</a>
       </div>
     </div>
@@ -1137,7 +1137,6 @@
           id="space-embed-frame"
           title="${config.title}"
           allow="accelerometer; camera; microphone; clipboard-read; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-downloads"
           loading="eager"
         ></iframe>
       </div>
@@ -1173,6 +1172,22 @@
     clearActiveSpaceTimers();
     activeSpaceEmbed.attempt = 0;
     loadActiveSpaceAttempt();
+  }
+
+  function openCarPriceSpaceModal() {
+    openManagedSpaceModal({
+      title: 'Prediction de Prix de Voitures',
+      src: 'https://a126ops-car-price-predictor-demo.hf.space/gradio/',
+      externalUrl: 'https://a126ops-car-price-predictor-demo.hf.space/gradio/',
+      externalLabel: 'Ouvrir la demo',
+      loaderTitle: 'Chargement de l interface Gradio',
+      initialText: 'Connexion a la demo voiture en cours.',
+      finalText: 'Si la demo tarde a apparaitre, utilisez "Relancer" ou ouvrez-la en plein ecran.',
+      retryDelay: 12000,
+      maxAttempts: 2,
+      getLoadingText: (attempt) =>
+        `Chargement de la demo voiture... tentative ${attempt}/2.`,
+    });
   }
 
   function openFuelSpaceModal() {
