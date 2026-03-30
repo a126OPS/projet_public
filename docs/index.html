@@ -394,6 +394,170 @@
   }
   .modal-placeholder-input input:focus { border-color: var(--accent); }
   .modal-placeholder-input input::placeholder { color: var(--muted); }
+  .space-frame-shell {
+    position: relative;
+    min-height: 950px;
+    background: var(--surface);
+  }
+  .space-frame-shell iframe {
+    width: 100%;
+    height: 950px;
+    border: none;
+    background: white;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+  .space-frame-shell iframe.visible { opacity: 1; }
+  .space-loader {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background:
+      linear-gradient(180deg, rgba(10, 18, 28, 0.96), rgba(10, 18, 28, 0.93));
+    text-align: center;
+  }
+  .space-loader.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+  }
+  .space-loader-content {
+    max-width: 520px;
+    display: grid;
+    gap: 1rem;
+    justify-items: center;
+  }
+  .space-spinner {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 3px solid rgba(255,255,255,0.14);
+    border-top-color: var(--accent);
+    animation: spin 0.9s linear infinite;
+  }
+  .space-loader-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--white);
+  }
+  .space-loader-text {
+    font-size: 0.84rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  .space-loader-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .fuel-local-shell {
+    display: grid;
+    gap: 1rem;
+    padding: 1.35rem;
+  }
+  .fuel-local-intro {
+    font-size: 0.84rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  .fuel-local-form {
+    display: grid;
+    gap: 1rem;
+  }
+  .fuel-local-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.85rem;
+  }
+  .fuel-local-field {
+    display: grid;
+    gap: 0.4rem;
+  }
+  .fuel-local-field span {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.66rem;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .fuel-local-field select,
+  .fuel-local-field input {
+    width: 100%;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 0.8rem 0.95rem;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 0.88rem;
+    outline: none;
+    transition: border-color 0.2s ease;
+  }
+  .fuel-local-field select:focus,
+  .fuel-local-field input:focus {
+    border-color: var(--accent);
+  }
+  .fuel-local-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .fuel-local-status {
+    min-height: 1.2rem;
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .fuel-local-status.error { color: #ff9d9d; }
+  .fuel-local-status.success { color: #8ce0a6; }
+  .fuel-local-result {
+    display: none;
+    gap: 0.9rem;
+    padding: 1rem;
+    border: 1px solid var(--border);
+    background: var(--surface2);
+  }
+  .fuel-local-result.visible {
+    display: grid;
+  }
+  .fuel-local-grid-results {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.85rem;
+  }
+  .fuel-local-card {
+    padding: 0.95rem;
+    border: 1px solid var(--border);
+    background: var(--surface);
+  }
+  .fuel-local-card-label {
+    margin-bottom: 0.4rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.66rem;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .fuel-local-card-value {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.08rem;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.35;
+  }
+  .fuel-local-note {
+    font-size: 0.81rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
  
   /* EDUCATION */
   .edu-grid {
@@ -493,6 +657,10 @@
     footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; }
     .form-row { flex-direction: column; }
     .projects-grid { grid-template-columns: 1fr; }
+    .space-loader-actions { flex-direction: column; align-items: stretch; }
+    .fuel-local-grid { grid-template-columns: 1fr; }
+    .fuel-local-grid-results { grid-template-columns: 1fr; }
+    .fuel-local-actions { flex-direction: column; align-items: stretch; }
   }
  
   /* HF badge pulse */
@@ -686,7 +854,7 @@
         </div>
       </div>
       <div class="project-card-footer">
-        <button class="btn-demo" onclick="openModal('modal-hf', 'https://a126ops-carburant-predict.hf.space', 'Prédiction Prix Carburant sur 7 Jours')">Tester le modèle</button>
+        <button class="btn-demo" onclick="openFuelSpaceModal()">Tester le modèle</button>
         <a href="https://huggingface.co/spaces/a126OPS/carburant_predict" target="_blank" class="btn-code">{'</>'}</a>
       </div>
     </div>
@@ -709,7 +877,7 @@
         </div>
       </div>
       <div class="project-card-footer">
-        <button class="btn-demo" onclick="openModal('modal-hf', 'https://a126ops-conso-energie-predict.hf.space/embed', 'Estimateur de Consommation Électrique Résidentielle — France')">Tester le modèle</button>
+        <button class="btn-demo" onclick="openConsoSpaceModal()">Tester le modèle</button>
         <a href="https://github.com/a126OPS/Conso_predict" target="_blank" class="btn-code">{'</>'}</a>
       </div>
     </div>
@@ -888,6 +1056,10 @@
  
 <script>
   // Intersection Observer for fade-in
+  let activeSpaceEmbed = null;
+  let activeSpaceTimers = [];
+  let activeSpaceToken = 0;
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
@@ -896,6 +1068,143 @@
     });
   }, { threshold: 0.08 });
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  function clearActiveSpaceTimers() {
+    activeSpaceTimers.forEach((timerId) => clearTimeout(timerId));
+    activeSpaceTimers = [];
+  }
+
+  function buildSpaceUrl(url) {
+    const separator = url.includes('?') ? '&' : '?';
+    return `${url}${separator}portfolio_ts=${Date.now()}`;
+  }
+
+  function setSpaceLoaderText(message) {
+    const text = document.getElementById('space-loader-text');
+    if (text) {
+      text.textContent = message;
+    }
+  }
+
+  function loadActiveSpaceAttempt() {
+    if (!activeSpaceEmbed) return;
+
+    const frame = document.getElementById('space-embed-frame');
+    const loader = document.getElementById('space-loader');
+    if (!frame || !loader) return;
+
+    activeSpaceEmbed.attempt += 1;
+    frame.dataset.loaded = 'false';
+    frame.classList.remove('visible');
+    loader.classList.remove('hidden');
+    setSpaceLoaderText(activeSpaceEmbed.getLoadingText(activeSpaceEmbed.attempt));
+    frame.src = buildSpaceUrl(activeSpaceEmbed.src);
+
+    if (activeSpaceEmbed.attempt < activeSpaceEmbed.maxAttempts) {
+      const token = activeSpaceToken;
+      activeSpaceTimers.push(setTimeout(() => {
+        if (token !== activeSpaceToken || !activeSpaceEmbed) return;
+        const currentFrame = document.getElementById('space-embed-frame');
+        if (!currentFrame || currentFrame.dataset.loaded === 'true') return;
+        loadActiveSpaceAttempt();
+      }, activeSpaceEmbed.retryDelay));
+    } else {
+      const token = activeSpaceToken;
+      activeSpaceTimers.push(setTimeout(() => {
+        if (token !== activeSpaceToken) return;
+        const currentFrame = document.getElementById('space-embed-frame');
+        if (!currentFrame || currentFrame.dataset.loaded === 'true') return;
+        setSpaceLoaderText(activeSpaceEmbed.finalText);
+      }, activeSpaceEmbed.retryDelay));
+    }
+  }
+
+  function renderManagedSpaceModal(config) {
+    return `
+      <div class="space-frame-shell">
+        <div class="space-loader" id="space-loader">
+          <div class="space-loader-content">
+            <div class="space-spinner"></div>
+            <div class="space-loader-title">${config.loaderTitle}</div>
+            <div class="space-loader-text" id="space-loader-text">${config.initialText}</div>
+            <div class="space-loader-actions">
+              <button type="button" class="btn-demo" onclick="reloadActiveSpace()">Relancer</button>
+              <a href="${config.externalUrl}" target="_blank" rel="noopener noreferrer" class="btn-code">${config.externalLabel}</a>
+            </div>
+          </div>
+        </div>
+        <iframe
+          id="space-embed-frame"
+          title="${config.title}"
+          allow="accelerometer; camera; microphone; clipboard-read; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-downloads"
+          loading="eager"
+        ></iframe>
+      </div>
+    `;
+  }
+
+  function openManagedSpaceModal(config) {
+    activeSpaceToken += 1;
+    clearActiveSpaceTimers();
+    activeSpaceEmbed = { ...config, attempt: 0 };
+
+    document.getElementById('modal-hf-title').textContent = config.title;
+    document.getElementById('modal-hf-body').innerHTML = renderManagedSpaceModal(config);
+    document.getElementById('modal-hf').classList.add('open');
+
+    const token = activeSpaceToken;
+    const frame = document.getElementById('space-embed-frame');
+    const loader = document.getElementById('space-loader');
+
+    frame.addEventListener('load', () => {
+      if (token !== activeSpaceToken) return;
+      frame.dataset.loaded = 'true';
+      clearActiveSpaceTimers();
+      loader.classList.add('hidden');
+      frame.classList.add('visible');
+    });
+
+    loadActiveSpaceAttempt();
+  }
+
+  function reloadActiveSpace() {
+    if (!activeSpaceEmbed) return;
+    clearActiveSpaceTimers();
+    activeSpaceEmbed.attempt = 0;
+    loadActiveSpaceAttempt();
+  }
+
+  function openFuelSpaceModal() {
+    openManagedSpaceModal({
+      title: 'Prediction Prix Carburant sur 7 Jours',
+      src: 'https://a126ops-carburant-predict.hf.space/',
+      externalUrl: 'https://huggingface.co/spaces/a126OPS/carburant_predict',
+      externalLabel: 'Voir le Space',
+      loaderTitle: 'Chargement de l interface Gradio',
+      initialText: 'Le Space carburant est en cours de demarrage.',
+      finalText: 'Le Space prend plus de temps que prevu. Utilisez "Relancer" ou ouvrez le Space dans un nouvel onglet.',
+      retryDelay: 18000,
+      maxAttempts: 3,
+      getLoadingText: (attempt) =>
+        `Demarrage du Space carburant... tentative ${attempt}/3. Le premier chargement peut prendre 30 a 90 secondes.`,
+    });
+  }
+
+  function openConsoSpaceModal() {
+    openManagedSpaceModal({
+      title: 'Estimateur de Consommation Electrique Residentielle - France',
+      src: 'https://a126ops-conso-energie-predict.hf.space/interface/',
+      externalUrl: 'https://a126ops-conso-energie-predict.hf.space/interface/',
+      externalLabel: 'Ouvrir l interface',
+      loaderTitle: 'Chargement de l interface Gradio',
+      initialText: 'Connexion a l interface electrique en cours.',
+      finalText: 'Si l interface tarde a apparaitre, utilisez "Relancer" ou ouvrez-la directement dans un nouvel onglet.',
+      retryDelay: 12000,
+      maxAttempts: 1,
+      getLoadingText: () => 'Chargement de l interface electrique...',
+    });
+  }
  
   // Modal functions
   function openModal(id, url, title) {
@@ -909,11 +1218,21 @@
  
   function closeModal(event, id) {
     if (event.target.classList.contains('modal-overlay')) {
+      if (id === 'modal-hf') {
+        activeSpaceToken += 1;
+        clearActiveSpaceTimers();
+        activeSpaceEmbed = null;
+      }
       document.getElementById(id).classList.remove('open');
     }
   }
  
   function closeModalById(id) {
+    if (id === 'modal-hf') {
+      activeSpaceToken += 1;
+      clearActiveSpaceTimers();
+      activeSpaceEmbed = null;
+    }
     document.getElementById(id).classList.remove('open');
   }
  
